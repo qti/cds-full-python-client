@@ -24,7 +24,7 @@ pip install git+https://github.com/qti/cds-full-python-client.git
 
 Then import the package:
 ```python
-import swagger_client 
+import swagger_client
 ```
 
 ### Setuptools
@@ -68,6 +68,20 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountsApi->get_account_detail: %s\n" % e)
+
+# Commbank
+# create an instance of the API class
+configuration = Configuration()
+configuration.host = 'https://api.commbank.com.au/cds-au/v1'
+api_instance = swagger_client.ProductsApi(swagger_client.ApiClient(configuration))
+x_v = '1'
+
+try:
+    # Get Products
+    api_response = api_instance.list_products(x_v)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling BankingApi->list_products: %s\n" % e)
 
 ```
 
