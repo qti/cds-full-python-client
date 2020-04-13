@@ -191,8 +191,9 @@ class BankingProductV2(object):
         :param last_updated: The last_updated of this BankingProductV2.  # noqa: E501
         :type: str
         """
-        if last_updated is None:
-            raise ValueError("Invalid value for `last_updated`, must not be `None`")  # noqa: E501
+        # Bandaid fix...
+        #if last_updated is None:
+        #    raise ValueError("Invalid value for `last_updated`, must not be `None`")  # noqa: E501
 
         self._last_updated = last_updated
 
