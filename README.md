@@ -49,9 +49,26 @@ Please follow the [installation procedure](#installation--usage) and then run th
 from __future__ import print_function
 import time
 import swagger_client
+from swagger_client.configuration import Configuration
 from swagger_client.rest import ApiException
 from pprint import pprint
 
+# Commbank
+# create an instance of the API class
+configuration = Configuration()
+configuration.host = 'https://api.commbank.com.au/public/cds-au/v1'
+api_instance = swagger_client.ProductsApi(swagger_client.ApiClient(configuration))
+x_v = '1'
+
+try:
+    # Get Products
+    api_response = api_instance.list_products(x_v)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling BankingApi->list_products: %s\n" % e)
+
+"""
+# Accounts API example
 # create an instance of the API class
 api_instance = swagger_client.AccountsApi(swagger_client.ApiClient(configuration))
 account_id = 'account_id_example' # str | A tokenised identifier for the account which is unique but not shareable
@@ -68,20 +85,7 @@ try:
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AccountsApi->get_account_detail: %s\n" % e)
-
-# Commbank
-# create an instance of the API class
-configuration = Configuration()
-configuration.host = 'https://api.commbank.com.au/cds-au/v1'
-api_instance = swagger_client.ProductsApi(swagger_client.ApiClient(configuration))
-x_v = '1'
-
-try:
-    # Get Products
-    api_response = api_instance.list_products(x_v)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling BankingApi->list_products: %s\n" % e)
+"""
 
 ```
 
